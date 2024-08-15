@@ -1,0 +1,167 @@
+@font-face {
+    font-family: 'DungGeunMo';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+.modal-box{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-box.active{
+    display: flex;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 2px; /* 둥근 모서리 */
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19); /* 그림자 효과 */
+    width: 80%; /* 또는 적절한 너비 */
+    max-width: 1000px; /* 최대 너비 설정 */
+    
+    /* 중앙 배치를 위한 스타일 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*닫기 버튼*/
+.close {
+    cursor: pointer;
+    color: #aaa;
+    background-color: #fff;
+    border: none;
+
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}  
+  
+.close:hover, .close:focus {
+    color: black;
+    cursor: pointer;
+  }
+
+/* 게시판 탭메뉴.ver */
+input[name="tabmenu_sujung"], 
+input[name="tabmenu_sungshin"], 
+input[name="tabmenu_nanhyang"], 
+input[name="tabmenu_prime"], 
+input[name="tabmenu_student"],
+input[name="tabmenu_art1"],
+input[name="tabmenu_art2"],
+input[name="tabmenu_music"] {
+    display: none;
+}
+
+input[name="tabmenu_sujung"] + label,
+input[name="tabmenu_sungshin"] + label,
+input[name="tabmenu_nanhyang"] + label,
+input[name="tabmenu_prime"] + label,
+input[name="tabmenu_student"] + label,
+input[name="tabmenu_art1"] + label,
+input[name="tabmenu_art2"] + label,
+input[name="tabmenu_music"] + label {
+    display: inline-block;
+    margin: 10px 0px;
+    padding: 0px 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #999;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+input[name="tabmenu_sujung"]:checked + label,
+input[name="tabmenu_sungshin"]:checked + label,
+input[name="tabmenu_nanhyang"]:checked + label,
+input[name="tabmenu_prime"]:checked + label,
+input[name="tabmenu_student"]:checked + label,
+input[name="tabmenu_art1"]:checked + label,
+input[name="tabmenu_art2"]:checked + label,
+input[name="tabmenu_music"]:checked + label {
+    border: 3px solid rgba(169,160,255,1);
+    color: rgba(169,160,255,1);
+}
+
+.conbox {
+    width: 100%;
+    min-height: 15em;
+    font-family: 'DungGeunMo';
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 0 auto;
+    display: none;
+}
+
+input[id="sj_F1"]:checked ~ .con1, /* 수정관 (10층) */
+input[id="sj_F2"]:checked ~ .con2,
+input[id="sj_F3"]:checked ~ .con3,
+input[id="sj_F4"]:checked ~ .con4,
+input[id="sj_F5"]:checked ~ .con5,
+input[id="sj_F6"]:checked ~ .con6,
+input[id="sj_F7"]:checked ~ .con7,
+input[id="sj_F8"]:checked ~ .con8,
+input[id="sj_F9"]:checked ~ .con9,
+input[id="sj_F10"]:checked ~ .con10,
+input[id="ss_F1"]:checked ~ .con1, /* 성신관 (10층) */
+input[id="ss_F2"]:checked ~ .con2,
+input[id="ss_F3"]:checked ~ .con3,
+input[id="ss_F4"]:checked ~ .con4,
+input[id="ss_F5"]:checked ~ .con5,
+input[id="ss_F6"]:checked ~ .con6,
+input[id="ss_F7"]:checked ~ .con7,
+input[id="ss_F8"]:checked ~ .con8,
+input[id="ss_F9"]:checked ~ .con9,
+input[id="ss_F10"]:checked ~ .con10,
+input[id="nh_F1"]:checked ~ .con1, /* 난향관 (8층) */
+input[id="nh_F2"]:checked ~ .con2,
+input[id="nh_F3"]:checked ~ .con3,
+input[id="nh_F4"]:checked ~ .con4,
+input[id="nh_F5"]:checked ~ .con5,
+input[id="nh_F6"]:checked ~ .con6,
+input[id="nh_F7"]:checked ~ .con7,
+input[id="nh_F8"]:checked ~ .con8,
+input[id="pm_F1"]:checked ~ .con1, /* 프라임관 (7층) */
+input[id="pm_F2"]:checked ~ .con2,
+input[id="pm_F3"]:checked ~ .con3,
+input[id="pm_F4"]:checked ~ .con4,
+input[id="pm_F5"]:checked ~ .con5,
+input[id="pm_F6"]:checked ~ .con6,
+input[id="pm_F7"]:checked ~ .con7,
+input[id="st_F1"]:checked ~ .con1, /* 학생회관 (5층) */
+input[id="st_F2"]:checked ~ .con2,
+input[id="st_F3"]:checked ~ .con3,
+input[id="st_F4"]:checked ~ .con4,
+input[id="st_F5"]:checked ~ .con5,
+input[id="art1_F1"]:checked ~ .con1, /* 조형 1관 (7층) */
+input[id="art1_F2"]:checked ~ .con2,
+input[id="art1_F3"]:checked ~ .con3,
+input[id="art1_F4"]:checked ~ .con4,
+input[id="art1_F5"]:checked ~ .con5,
+input[id="art1_F6"]:checked ~ .con6,
+input[id="art1_F7"]:checked ~ .con7,
+input[id="art2_F1"]:checked ~ .con1, /* 조형 2관 (5층) */
+input[id="art2_F2"]:checked ~ .con2,
+input[id="art2_F3"]:checked ~ .con3,
+input[id="art2_F4"]:checked ~ .con4,
+input[id="art2_F5"]:checked ~ .con5,
+input[id="music_F1"]:checked ~ .con1, /* 음악관 (5층) */
+input[id="music_F2"]:checked ~ .con2,
+input[id="music_F3"]:checked ~ .con3,
+input[id="music_F4"]:checked ~ .con4,
+input[id="music_F5"]:checked ~ .con5 {
+    display: block;
+}

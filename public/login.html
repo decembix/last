@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수룡 선배</title>
+    <link rel="stylesheet" href="../asset/signin.css"> <!--스타일시트 적용-->
+    <script  src="join.js"></script> <!--자바스크립트 적용-->
+</head>
+
+<body>
+    <div class="logo">
+        <a href="/"><img src="../asset/이미지/수룡선배 아이콘2.png" width="350px"></a>
+    </div>
+    <form id="loginForm">
+        <table>
+            <tr>
+                <td><h2>log in</h2></td>
+            </tr>
+            <tr>
+                <td><input type="text" id="loginUsername" name="userID" placeholder=ID></td>
+            </tr>
+            <tr>
+                <td><input type="password" id="loginPassword" name="password" placeholder=Password></td>
+            </tr>
+           <tr>
+                <td><input type="submit" value="Sign in" class="btn" id="btn"></td>
+            </tr>
+            <tr>
+                <td class="join"><a href="/register">회원가입</a></td>
+                <p id="error-message" style="color: red;"></p>
+                </tr>
+            <tr> <td><a href="/reset_request">비밀번호 변경</a></td></tr>
+    </table>
+    </form>
+
+
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {//로그인 시도
+            event.preventDefault();
+
+            const userID = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+
+            fetch('/users/login', { 
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ userID, password })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.token) {
+                    sessionStorage.setItem('authToken', data.token);
+                    window.location.href = '/';
+                } else {
+                    document.getElementById('error-message').innerText = data.msg;
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                document.getElementById('error-message').innerText = '로그인 중 오류가 발생했습니다.';
+            });
+        });
+    </script>
+</body>
+
+</html>

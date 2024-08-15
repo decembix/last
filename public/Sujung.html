@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수정캠퍼스</title>
+    <link rel="stylesheet" href="../asset/main.css">
+    <link rel="stylesheet" href="../asset/Sujung.css">
+    <link rel="stylesheet" href="../asset/Modal.css">
+    <script  src="../asset/tab.js"></script> <!--자바스크립트 적용-->
+    <script  src="../asset/Modal.js"></script> <!--자바스크립트 적용-->
+</head>
+<body>
+    <header>
+        <div id="signin">
+            <a href="/login">회원가입/로그인</a>
+        </div>
+        <div class="logo">
+            <a href="/"><img src="../asset/이미지/수룡선배 아이콘2.png" width="400px" alt="Logo"></a>
+        </div>
+        <nav class="folder">
+            <div class="tabs">
+                <a href="/Sujung" class="tab"><div><span>수정캠퍼스</span></div></a>
+                <a href="/Unjung" class="tab"><div><span>운정캠퍼스</span></div></a>
+                <a href="/Bus" class="tab"><div><span>셔틀버스</span></div></a>
+                <a href="/view" class="tab"><div><span>수정이 공간</span></div></a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="content__inner"> <!--수캠 지도-->
+            <div class="page">
+                <div class="left">
+                    
+                </div>
+                <div class="right">
+                    <!-- 수정관 버튼과 모달 -->
+                    <button class="btn sujung-btn">수정관</button>
+                    <div class="modal-box sujung-modal">
+                        <div class="modal-content">
+                            <button class="close">&times;</button> <!--닫기 버튼-->
+                            <!-- 수정관 층별 안내 -->
+                            <input class="Floor_tab" type="radio" name="tabmenu_sujung" id="sj_F1" onclick="showTab('sj_F1')" checked>
+                            <label for="sj_F1">1층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_sujung" id="sj_F2" onclick="showTab('sj_F2')">
+                            <label for="sj_F2">2층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_sujung" id="sj_F3" onclick="showTab('sj_F3')">
+                            <label for="sj_F3">3층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_sujung" id="sj_F4" onclick="showTab('sj_F4')">
+                            <label for="sj_F4">4층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_sujung" id="sj_F5" onclick="showTab('sj_F5')">
+                            <label for="sj_F5">5층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_sujung" id="sj_F6" onclick="showTab('sj_F6')">
+                            <label for="sj_F6">6층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_sujung" id="sj_F7" onclick="showTab('sj_F7')">
+                            <label for="sj_F7">7층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_sujung" id="sj_F8" onclick="showTab('sj_F8')">
+                            <label for="sj_F8">8층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_sujung" id="sj_F9" onclick="showTab('sj_F9')">
+                            <label for="sj_F9">9층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_sujung" id="sj_F10" onclick="showTab('sj_F10')">
+                            <label for="sj_F10">10층</label>
+
+                            <div class="conbox con1"> <!--1층-->
+                                <img src="../asset/이미지/지도/수정관_1층.png" width="100%">
+                            </div>
+                            <div class="conbox con2"> <!--2층-->
+                                <img src="../asset/이미지/지도/수정관_2층.png" width="100%">
+                            </div>
+                            <div class="conbox con3"> <!--3층-->
+                                <img src="../asset/이미지/지도/수정관_3층.png" width="100%">
+                            </div>
+                            <div class="conbox con4"> <!--4층-->
+                                <img src="../asset/이미지/지도/수정관_4층.png" width="100%">
+                            </div>
+                            <div class="conbox con5"> <!--5층-->
+                                <img src="../asset/이미지/지도/수정관_5층.png" width="100%">
+                            </div>
+                            <div class="conbox con6"> <!--6층-->
+                                <img src="../asset/이미지/지도/수정관_6층.png" width="100%">
+                            </div>
+                            <div class="conbox con7"> <!--7층-->
+                                <img src="../asset/이미지/지도/수정관_7층.png" width="100%">
+                            </div>
+                            <div class="conbox con8"> <!--8층-->
+                                <img src="../asset/이미지/지도/수정관_8층.png" width="100%">
+                            </div>
+                            <div class="conbox con9"> <!--9층-->
+                                <img src="../asset/이미지/지도/수정관_9층.png" width="100%">
+                            </div>
+                            <div class="conbox con10"> <!--10층-->
+                                <img src="../asset/이미지/지도/수정관_10층.png" width="100%">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 성신관 버튼과 모달 -->
+                    <button class="btn sungshin-btn">성신관</button>
+                    <div class="modal-box sungshin-modal">
+                        <div class="modal-content">
+                            <button class="close">&times;</button> <!--닫기 버튼-->
+                            <!-- 성신관 층별 안내 -->
+                            <input class="Floor_tab" type="radio" name="tabmenu_sungshin" id="ss_F1" onclick="showTab('ss_F1')" checked>
+                            <label for="ss_F1">1층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_sungshin" id="ss_F2" onclick="showTab('ss_F2')">
+                            <label for="ss_F2">2층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_sungshin" id="ss_F3" onclick="showTab('ss_F3')">
+                            <label for="ss_F3">3층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_sungshin" id="ss_F4" onclick="showTab('ss_F4')">
+                            <label for="ss_F4">4층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_sungshin" id="ss_F5" onclick="showTab('ss_F5')">
+                            <label for="ss_F5">5층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_sungshin" id="ss_F6" onclick="showTab('ss_F6')">
+                            <label for="ss_F6">6층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_sungshin" id="ss_F7" onclick="showTab('ss_F7')">
+                            <label for="ss_F7">7층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_sungshin" id="ss_F8" onclick="showTab('ss_F8')">
+                            <label for="ss_F8">8층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_sungshin" id="ss_F9" onclick="showTab('ss_F9')">
+                            <label for="ss_F9">9층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_sungshin" id="ss_F10" onclick="showTab('ss_F10')">
+                            <label for="ss_F10">10층</label>
+
+                            <div class="conbox con1"> <!--1층-->
+                                <img src="../asset/이미지/지도/성신관_1층.png" width="100%">
+                            </div>
+                            <div class="conbox con2"> <!--2층-->
+                                <img src="../asset/이미지/지도/성신관_2층.png" width="100%">
+                            </div>
+                            <div class="conbox con3"> <!--3층-->
+                                <img src="../asset/이미지/지도/성신관_3층.png" width="100%">
+                            </div>
+                            <div class="conbox con4"> <!--4층-->
+                                <img src="../asset/이미지/지도/성신관_4층.png" width="100%">
+                            </div>
+                            <div class="conbox con5"> <!--5층-->
+                                <img src="../asset/이미지/지도/성신관_5층.png" width="100%">
+                            </div>
+                            <div class="conbox con6"> <!--6층-->
+                                <img src="../asset/이미지/지도/성신관_6층.png" width="100%">
+                            </div>
+                            <div class="conbox con7"> <!--7층-->
+                                <img src="../asset/이미지/지도/성신관_7층.png" width="100%">
+                            </div>
+                            <div class="conbox con8"> <!--8층-->
+                                <img src="../asset/이미지/지도/성신관_8층.png" width="100%">
+                            </div>
+                            <div class="conbox con9"> <!--9층-->
+                                <img src="../asset/이미지/지도/성신관_9층.png" width="100%">
+                            </div>
+                            <div class="conbox con10"> <!--10층-->
+                                <img src="../asset/이미지/지도/성신관_10층.png" width="100%">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 난향관 버튼과 모달 -->
+                    <button class="btn nanhyang-btn">난향관</button>
+                    <div class="modal-box nanhyang-modal">
+                        <div class="modal-content">
+                            <button class="close">&times;</button> <!-- 닫기 버튼 -->
+                            <!-- 난향관 층별 안내 -->
+                            <input class="Floor_tab" type="radio" name="tabmenu_nanhyang" id="nh_F1" onclick="showTab('nh_F1')" checked>
+                            <label for="nh_F1">1층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_nanhyang" id="nh_F2" onclick="showTab('nh_F2')">
+                            <label for="nh_F2">2층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_nanhyang" id="nh_F3" onclick="showTab('nh_F3')">
+                            <label for="nh_F3">3층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_nanhyang" id="nh_F4" onclick="showTab('nh_F4')">
+                            <label for="nh_F4">4층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_nanhyang" id="nh_F5" onclick="showTab('nh_F5')">
+                            <label for="nh_F5">5층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_nanhyang" id="nh_F6" onclick="showTab('nh_F6')">
+                            <label for="nh_F6">6층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_nanhyang" id="nh_F7" onclick="showTab('nh_F7')">
+                            <label for="nh_F7">7층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_nanhyang" id="nh_F8" onclick="showTab('nh_F8')">
+                            <label for="nh_F8">8층</label>
+
+                            <div class="conbox con1"> <!-- 1층 -->
+                                <img src="../asset/이미지/지도/난향관_1층.png" width="100%">
+                            </div>
+                            <div class="conbox con2"> <!-- 2층 -->
+                                <img src="../asset/이미지/지도/난향관_2층.png" width="100%">
+                            </div>
+                            <div class="conbox con3"> <!-- 3층 -->
+                                <img src="../asset/이미지/지도/난향관_3층.png" width="100%">
+                            </div>
+                            <div class="conbox con4"> <!-- 4층 -->
+                                <img src="../asset/이미지/지도/난향관_4층.png" width="100%">
+                            </div>
+                            <div class="conbox con5"> <!-- 5층 -->
+                                <img src="../asset/이미지/지도/난향관_5층.png" width="100%">
+                            </div>
+                            <div class="conbox con6"> <!-- 6층 -->
+                                <img src="../asset/이미지/지도/난향관_6층.png" width="100%">
+                            </div>
+                            <div class="conbox con7"> <!-- 7층 -->
+                                <img src="../asset/이미지/지도/난향관_7층.png" width="100%">
+                            </div>
+                            <div class="conbox con8"> <!-- 8층 -->
+                                <img src="../asset/이미지/지도/난향관_8층.png" width="100%">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 프라임관 버튼과 모달 -->
+                    <button class="btn prime-btn">프라임관</button>
+                    <div class="modal-box prime-modal">
+                        <div class="modal-content">
+                            <button class="close">&times;</button> <!-- 닫기 버튼 -->
+                            <!-- 프라임관 층별 안내 -->
+                            <input class="Floor_tab" type="radio" name="tabmenu_prime" id="pm_F1" onclick="showTab('pm_F1')" checked>
+                            <label for="pm_F1">1층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_prime" id="pm_F2" onclick="showTab('pm_F2')">
+                            <label for="pm_F2">2층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_prime" id="pm_F3" onclick="showTab('pm_F3')">
+                            <label for="pm_F3">3층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_prime" id="pm_F4" onclick="showTab('pm_F4')">
+                            <label for="pm_F4">4층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_prime" id="pm_F5" onclick="showTab('pm_F5')">
+                            <label for="pm_F5">5층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_prime" id="pm_F6" onclick="showTab('pm_F6')">
+                            <label for="pm_F6">6층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_prime" id="pm_F7" onclick="showTab('pm_F7')">
+                            <label for="pm_F7">7층</label>
+
+                            <div class="conbox con1"> <!-- 1층 -->
+                                <img src="../asset/이미지/지도/프라임관_1층.png" width="100%">
+                            </div>
+                            <div class="conbox con2"> <!-- 2층 -->
+                                <img src="../asset/이미지/지도/프라임관_2층.png" width="100%">
+                            </div>
+                            <div class="conbox con3"> <!-- 3층 -->
+                                <img src="../asset/이미지/지도/프라임관_3층.png" width="100%">
+                            </div>
+                            <div class="conbox con4"> <!-- 4층 -->
+                                <img src="../asset/이미지/지도/프라임관_4층.png" width="100%">
+                            </div>
+                            <div class="conbox con5"> <!-- 5층 -->
+                                <img src="../asset/이미지/지도/프라임관_5층.png" width="100%">
+                            </div>
+                            <div class="conbox con6"> <!-- 6층 -->
+                                <img src="../asset/이미지/지도/프라임관_6층.png" width="100%">
+                            </div>
+                            <div class="conbox con7"> <!-- 7층 -->
+                                <img src="../asset/이미지/지도/프라임관_7층.png" width="100%">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 학생회관 버튼과 모달 -->
+                    <button class="btn student-btn">학생회관</button>
+                    <div class="modal-box student-modal">
+                        <div class="modal-content">
+                            <button class="close">&times;</button> <!-- 닫기 버튼 -->
+                            <!-- 학생회관 층별 안내 -->
+                            <input class="Floor_tab" type="radio" name="tabmenu_student" id="st_F1" onclick="showTab('st_F1')" checked>
+                            <label for="st_F1">1층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_student" id="st_F2" onclick="showTab('st_F2')">
+                            <label for="st_F2">2층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_student" id="st_F3" onclick="showTab('st_F3')">
+                            <label for="st_F3">3층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_student" id="st_F4" onclick="showTab('st_F4')">
+                            <label for="st_F4">4층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_student" id="st_F5" onclick="showTab('st_F5')">
+                            <label for="st_F5">5층</label>
+
+                            <div class="conbox con1"> <!-- 1층 -->
+                                <img src="../asset/이미지/지도/학생회관_1층.png" width="100%">
+                            </div>
+                            <div class="conbox con2"> <!-- 2층 -->
+                                <img src="../asset/이미지/지도/학생회관_2층.png" width="100%">
+                            </div>
+                            <div class="conbox con3"> <!-- 3층 -->
+                                <img src="../asset/이미지/지도/학생회관_3층.png" width="100%">
+                            </div>
+                            <div class="conbox con4"> <!-- 4층 -->
+                                <img src="../asset/이미지/지도/학생회관_4층.png" width="100%">
+                            </div>
+                            <div class="conbox con5"> <!-- 5층 -->
+                                <img src="../asset/이미지/지도/학생회관_5층.png" width="100%">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 조형1관 버튼과 모달 -->
+                    <button class="btn art1-btn">조형1관</button>
+                    <div class="modal-box art1-modal">
+                        <div class="modal-content">
+                            <button class="close">&times;</button> <!-- 닫기 버튼 -->
+                            <!-- 조형1관 층별 안내 -->
+                            <input class="Floor_tab" type="radio" name="tabmenu_art1" id="art1_F1" onclick="showTab('art1_F1')" checked>
+                            <label for="art1_F1">1층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_art1" id="art1_F2" onclick="showTab('art1_F2')">
+                            <label for="art1_F2">2층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_art1" id="art1_F3" onclick="showTab('art1_F3')">
+                            <label for="art1_F3">3층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_art1" id="art1_F4" onclick="showTab('art1_F4')">
+                            <label for="art1_F4">4층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_art1" id="art1_F5" onclick="showTab('art1_F5')">
+                            <label for="art1_F5">5층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_art1" id="art1_F6" onclick="showTab('art1_F6')">
+                            <label for="art1_F6">6층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_art1" id="art1_F7" onclick="showTab('art1_F7')">
+                            <label for="art1_F7">7층</label>
+
+                            <div class="conbox con1"> <!-- 1층 -->
+                                <img src="../asset/이미지/지도/조형1관_1층.png" width="75%">
+                            </div>
+                            <div class="conbox con2"> <!-- 2층 -->
+                                <img src="../asset/이미지/지도/조형1관_2층.png" width="75%">
+                            </div>
+                            <div class="conbox con3"> <!-- 3층 -->
+                                <img src="../asset/이미지/지도/조형1관_3층.png" width="75%">
+                            </div>
+                            <div class="conbox con4"> <!-- 4층 -->
+                                <img src="../asset/이미지/지도/조형1관_4층.png" width="75%">
+                            </div>
+                            <div class="conbox con5"> <!-- 5층 -->
+                                <img src="../asset/이미지/지도/조형1관_5층.png" width="75%">
+                            </div>
+                            <div class="conbox con6"> <!-- 6층 -->
+                                <img src="../asset/이미지/지도/조형1관_6층.png" width="75%">
+                            </div>
+                            <div class="conbox con7"> <!-- 7층 -->
+                                <img src="../asset/이미지/지도/조형1관_7층.png" width="75%">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 조형2관 버튼과 모달 -->
+                    <button class="btn art2-btn">조형2관</button>
+                    <div class="modal-box art2-modal">
+                        <div class="modal-content">
+                            <button class="close">&times;</button> <!-- 닫기 버튼 -->
+                            <!-- 조형2관 층별 안내 -->
+                            <input class="Floor_tab" type="radio" name="tabmenu_art2" id="art2_F1" onclick="showTab('art2_F1')" checked>
+                            <label for="art2_F1">1층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_art2" id="art2_F2" onclick="showTab('art2_F2')">
+                            <label for="art2_F2">2층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_art2" id="art2_F3" onclick="showTab('art2_F3')">
+                            <label for="art2_F3">3층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_art2" id="art2_F4" onclick="showTab('art2_F4')">
+                            <label for="art2_F4">4층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_art2" id="art2_F5" onclick="showTab('art2_F5')">
+                            <label for="art2_F5">5층</label>
+
+                            <div class="conbox con1"> <!-- 1층 -->
+                                <img src="../asset/이미지/지도/조형2관_1층.png" width="100%">
+                            </div>
+                            <div class="conbox con2"> <!-- 2층 -->
+                                <img src="../asset/이미지/지도/조형2관_2층.png" width="100%">
+                            </div>
+                            <div class="conbox con3"> <!-- 3층 -->
+                                <img src="../asset/이미지/지도/조형2관_3층.png" width="100%">
+                            </div>
+                            <div class="conbox con4"> <!-- 4층 -->
+                                <img src="../asset/이미지/지도/조형2관_4층.png" width="100%">
+                            </div>
+                            <div class="conbox con5"> <!-- 5층 -->
+                                <img src="../asset/이미지/지도/조형2관_5층.png" width="100%">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 음악관 버튼과 모달 -->
+                    <button class="btn music-btn">음악관</button>
+                    <div class="modal-box music-modal">
+                        <div class="modal-content">
+                            <button class="close">&times;</button> <!-- 닫기 버튼 -->
+                            <!-- 음악관 층별 안내 -->
+                            <input class="Floor_tab" type="radio" name="tabmenu_music" id="music_F1" onclick="showTab('music_F1')" checked>
+                            <label for="music_F1">1층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_music" id="music_F2" onclick="showTab('music_F2')">
+                            <label for="music_F2">2층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_music" id="music_F3" onclick="showTab('music_F3')">
+                            <label for="music_F3">3층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_music" id="music_F4" onclick="showTab('music_F4')">
+                            <label for="music_F4">4층</label>
+                            <input class="Floor_tab" type="radio" name="tabmenu_music" id="music_F5" onclick="showTab('music_F5')">
+                            <label for="music_F5">5층</label>
+
+                            <div class="conbox con1"> <!-- 1층 -->
+                                <img src="../asset/이미지/지도/음악관_1층.png" width="75%">
+                            </div>
+                            <div class="conbox con2"> <!-- 2층 -->
+                                <img src="../asset/이미지/지도/음악관_2층.png" width="75%">
+                            </div>
+                            <div class="conbox con3"> <!-- 3층 -->
+                                <img src="../asset/이미지/지도/음악관_3층.png" width="75%">
+                            </div>
+                            <div class="conbox con4"> <!-- 4층 -->
+                                <img src="../asset/이미지/지도/음악관_4층.png" width="75%">
+                            </div>
+                            <div class="conbox con5"> <!-- 5층 -->
+                                <img src="../asset/이미지/지도/음악관_5층.png" width="75%">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <button class="btn science-btn"> 과학관 </button> <!--공사 중이라 층별 배치도 없음-->
+                    <div class="modal-box science-modal">
+                        <div class="modal-content">
+                            <button class="close">&times;</button> <!-- 닫기 버튼 -->
+                            <p>
+                                과학관은 현재 공사 중이기에,<br>
+                                층별 배치도를 제공하지 않습니다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <button class="btn administration-btn"> 행정관 </button> <!--강의실이 없는 건물이라 제외-->
+                    <div class="modal-box administration-modal">
+                        <div class="modal-content">
+                            <button class="close">&times;</button> <!-- 닫기 버튼 -->
+                            <p>행정관은 추후 추가할 예정입니다.</p>
+                        </div>
+                    </div>
+
+
+                </div>
+    </main>
+    <footer>
+        <p>©컴공 전복자들</p>
+    </footer>
+
+    <script>
+        function toggleContent(element) {
+            var content = element.nextElementSibling;
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+
+        // 로그인 상태 확인
+        document.addEventListener('DOMContentLoaded', () => {
+            const token = sessionStorage.getItem('authToken');
+            if (token) {
+                fetch('/users/me', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                })
+                .then(response => response.json())
+                .then(user => {
+                    if (user.username) {
+                        document.getElementById('signin').innerHTML = `
+                            ${user.username}님, 반갑습니다! 
+                            <button id="logoutButton">로그아웃</button>
+                        `;
+                        document.getElementById('logoutButton').addEventListener('click', () => {
+                            sessionStorage.removeItem('authToken');
+                            window.location.href = '/index.html';
+                        });
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            }
+        });
+
+
+        // JavaScript를 이용하여 마우스 호버 시 이미지 변경
+document.querySelectorAll('.right p').forEach(item => {
+    item.addEventListener('mouseover', function() {
+        document.querySelectorAll('.left img').forEach(img => img.style.display = 'none');
+        const imgId = this.getAttribute('data-image');
+        const img = document.getElementById(imgId);
+        if (img) {
+            img.style.display = 'block';
+        }
+    });
+
+    item.addEventListener('mouseout', function() {
+        const imgId = this.getAttribute('data-image');
+        const img = document.getElementById(imgId);
+        if (img) {
+            img.style.display = 'none';
+        }
+    });
+});
+    </script>
+</body>
+</html>

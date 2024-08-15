@@ -1,0 +1,55 @@
+@font-face{ /* 본문 글씨용 글꼴 */
+    font-family:'bitbit';
+    src:url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff'),url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2') ;
+}
+
+.content__inner{
+    --background: rgba(169,160,255,1);
+}
+
+.page {
+    display: flex;
+    flex-direction: row;
+    background-color: #ffffff;
+}
+
+.left{
+    width: 100%;
+    min-height: 400px;
+    background: url(../asset/이미지/수정캠퍼스.png) 0 0 no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+.right{
+    width: 20%;
+    height: 15em;
+    margin: auto 0;
+    text-align: center;
+    font-size: 1.5rem;
+    overflow-y: scroll;
+}
+
+.right::-webkit-scrollbar{
+    display: none;
+}
+
+/*건물 버튼*/
+.btn{
+    font-family: 'bitbit';
+    font-size: 20px;
+    color: rgb(69, 63, 136);
+
+    margin: 10px 0;
+    padding: 5%;
+
+    background-color: rgb(247, 246, 255);
+    border: rgb(247, 246, 255) 3px solid;
+    border-radius: 5px;
+}
+
+.btn:hover{
+    color: rgb(247, 246, 255);
+    background-color: rgb(69, 63, 136);
+    border: rgb(69, 63, 136) 3px solid;
+}

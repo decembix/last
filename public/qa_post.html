@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q&A 게시글</title>
+    <link rel="stylesheet" href="../asset/Main.css">
+    <link rel="stylesheet" href="../asset/Communication.css">
+    <link rel="stylesheet" href="../asset/qa_post.css">
+
+</head>
+<body>
+    <header>
+        <div id="signin">
+            <a href="/login">회원가입/로그인</a>
+        </div>
+        <div class="logo">
+            <a href="/"><img src="../asset/이미지/수룡선배 아이콘2.png" width="400px" alt="Logo"></a>
+        </div>
+        <nav class="folder">
+            <div class="tabs">
+                <a href="/Sujung" class="tab"><div><span>수정캠퍼스</span></div></a>
+                <a href="/Unjung" class="tab"><div><span>운정캠퍼스</span></div></a>
+                <a href="/Bus" class="tab"><div><span>셔틀버스</span></div></a>
+                <a href="/view" class="tab"><div><span>수정이 공간</span></div></a>
+            </div>
+        </nav>
+    </header>
+
+<main>
+    <div class="content__inner"> <!--수정이 공간-->
+        <div class="page">
+            <div class="post-content">
+                <h3 id="postTitle"></h3>
+                <p id="postAuthor"></p>
+                <p id="postContent"></p>
+            </div>
+        
+            <div id="comments-section">
+                <h4 class = "commentTab" onclick="toggleComments()">댓글</h4> <!-- 댓글 제목에 클릭 이벤트 추가 -->
+
+                <div id="comments-list"></div>
+                <div class="comment-button">
+                    <button onclick="submitComment()">댓글 달기</button>
+                </div>
+                <textarea id="commentContent" placeholder="댓글을 입력하세요"></textarea>
+            </div>
+        
+            <div class="navigation">
+                <a id="prevPostLink" href="#"></a>
+                <a id="nextPostLink" href="#"></a>
+            </div>
+            <div class="back-button">
+                <button id="back-button" onclick="goBack()">뒤로가기</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const postId = urlParams.get('id');
+    const prevPage = urlParams.get('page');
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const token = sessionStorage.getItem('authToken');
+
+        // 게시글과 댓글 로드
+        fetch(`/posts/qa/${postId}`)
+            .then(response => response.json())
+            .then(data => {
+                const { post, previousPost, nextPost } = data;
+                document.getElementById('postTitle').innerText = post.title;
+                document.getElementById('postAuthor').innerText = `작성자: ${post.author.username}`;
+                document.getElementById('postContent').innerText = post.content;
+
+                if (previousPost) {
+                    document.getElementById('prevPostLink').href = `/qa_post?id=${previousPost._id}&page=${prevPage}`;
+                    document.getElementById('prevPostLink').innerText = `이전 글: ${previousPost.title}`;
+                } else {
+                    document.getElementById('prevPostLink').innerText = '이전 글 없음';
+                    document.getElementById('prevPostLink').style.pointerEvents = 'none';
+                    document.getElementById('prevPostLink').style.color = 'grey';
+                }
+
+                if (nextPost) {
+                    document.getElementById('nextPostLink').href = `/qa_post?id=${nextPost._id}&page=${prevPage}`;
+                    document.getElementById('nextPostLink').innerText = `다음 글: ${nextPost.title}`;
+                } else {
+                    document.getElementById('nextPostLink').innerText = '다음 글 없음';
+                    document.getElementById('nextPostLink').style.pointerEvents = 'none';
+                    document.getElementById('nextPostLink').style.color = 'grey';
+                }
+
+                // 댓글 로드
+                loadComments(postId);
+            })
+            .catch(error => console.error('Error:', error));
+
+        if (token) {
+            fetch('/users/me', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            .then(response => response.json())
+            .then(user => {
+                if (user.username) {
+                    document.getElementById('signin').innerHTML = `
+                        ${user.username}님, 반갑습니다! 
+                        <button id="logoutButton">로그아웃</button>
+                    `;
+                    document.getElementById('logoutButton').addEventListener('click', () => {
+                        sessionStorage.removeItem('authToken');
+                        window.location.href = '/';
+                    });
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    });
+
+    function goBack() {
+        window.location.href = `/view?tab=qa&page=${prevPage}`;
+    }
+
+    function showTab(tabID) {
+        if(tabID === 'faq'){
+            window.location.href = `/view?tab=faq&page=${prevPage}`;
+        } else if(tabID === 'qa'){
+            window.location.href = `/view?tab=qa&page=${prevPage}`;
+        }
+    }
+
+    function loadComments(postId) {
+        fetch(`/comments/${postId}`)
+            .then(response => response.json())
+            .then(comments => {
+                const commentsList = document.getElementById('comments-list');
+                commentsList.innerHTML = comments.map(comment => `
+                    <div class="comment">
+                        <p><strong>${comment.author.username}:</strong> ${comment.content} &nbsp&nbsp<small class="date">${new Date(comment.date).toLocaleString()}</small></p>
+                        
+                    </div>
+                `).join('');
+            })
+            .catch(error => console.error('Error loading comments:', error));
+    }
+
+
+    function submitComment() {
+    const content = document.getElementById('commentContent').value;
+    console.log('Comment content:', content);  // 디버깅용 로그 추가
+
+    fetch('/comments', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'x-auth-token': sessionStorage.getItem('authToken') // x-auth-token 헤더로 토큰 전달
+        },
+        body: JSON.stringify({ content, postId })
+    })
+    .then(response => {
+        if (!response.ok) {
+            return response.json().then(error => { throw new Error(error.msg || '서버 오류'); });
+        }
+        return response.json();
+    })
+    .then(data => {
+        alert(data.msg || '댓글이 작성되었습니다!');
+        document.getElementById('commentContent').value = '';
+        loadComments(postId); // 댓글 목록을 업데이트
+    })
+    .catch(error => {
+        alert(`내용을 입력해주세요!`); //빈칸이어도 에러
+    });
+}
+
+
+    function toggleComments() {
+        const commentsList = document.getElementById('comments-list');
+        if (commentsList.style.display === 'none' || commentsList.style.display === '') {
+            commentsList.style.display = 'block'; // 댓글 목록을 표시
+        } else {
+            commentsList.style.display = 'none'; // 댓글 목록을 숨김
+        }
+    }
+</script>
+
+</body>
+</html>

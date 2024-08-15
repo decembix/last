@@ -1,0 +1,57 @@
+/* 기본 레이아웃 설정 */
+.content__inner {
+  --background: rgba(193, 171, 255, 1);
+  border-radius: 5px;
+}
+
+.page {
+  display: flex;
+  flex-direction: row;
+}
+
+.left {
+  width: 100%;
+  min-height: 600px;
+  background: url(../asset/이미지/운정캠퍼스.png) 0 0 no-repeat;
+  background-size: contain;
+  background-position: center center;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* 자식의 위치를 조정하기 위해 relative 설정 */
+}
+
+.left img {
+  position: absolute;
+  max-width: 100%; /* 이미지를 적절한 크기로 조정 */
+  max-height: 100%;
+  object-fit: contain;
+  display: none; /* 기본적으로 이미지는 숨김 */
+}
+
+.right p {
+  cursor: pointer;
+}
+
+#building-image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 오른쪽 영역 스타일 */
+.right {
+  width: 20%;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+  overflow-y: scroll;
+}
+
+.right::-webkit-scrollbar {
+  display: none;
+}
+
+p{
+  cursor: pointer;
+} 

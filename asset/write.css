@@ -1,0 +1,102 @@
+@font-face {
+    font-family: 'DungGeunMo';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*0811*/
+.content__inner {
+    display: flex;
+    padding: 20px;
+    
+}
+
+label, input, #content{
+    font-family: 'DungGeunMo';
+}
+
+.page {
+    width: 750px; /* 원하는 너비 */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    background: #fff;
+}
+
+#postForm label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#title {
+    padding: 12px; /* 제목 입력란의 패딩 증가 */
+    border: 1px solid #000000;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: calc(100% - 110px); /* 글자 수 카운트와 여백을 고려한 너비 */
+    box-sizing: border-box;
+    margin-bottom: 5px; /* 제목 입력란과 다른 요소 사이의 간격 */
+}
+
+#titleLength {
+    font-size: 0.8rem;
+    color: #7a7983;
+    text-align: right;
+    margin-left: 10px; /* 제목 입력란과 글자 수 카운트 사이의 간격 */
+}
+
+textarea {
+    padding: 12px; /* 내용 입력란의 패딩 증가 */
+    border: 1px solid #000000;
+    border-radius: 3px;
+    width:90%;
+    font-size: 1rem;
+    height: 200px; /* 내용 입력란의 높이 증가 */
+    box-sizing: border-box;
+    margin-bottom: 20px; /* 내용 입력란과 버튼 사이의 간격 */
+}
+
+h1{
+    text-align: center;
+}
+
+.button_wrap{
+    text-align: center;
+    font-size: 0;
+}
+
+input[type="submit"], input[type="button"] {
+    padding: 10px 20px; /* 버튼의 패딩 조정 */
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    flex: 1; /* 버튼을 같은 크기로 만듦 */
+}
+
+input[type="submit"] {
+    background-color: #bcc3fe;
+    color: #000000;
+}
+
+input[type="submit"]:hover{
+    background-color: #a1a8e4;
+}
+
+input[type="button"] {
+    background-color: #d1d1d1;
+    color: #000000;
+    margin-left: 20px;
+}
+
+input[type="button"]:hover{
+    background-color: #b7b6b6;
+}
+
+#error-message {
+    font-size: 1rem;
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}

@@ -1,0 +1,74 @@
+@font-face {
+    font-family: 'DungGeunMo';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.communication-tab:hover {
+    background-color: #d3d3d3; /* 마우스 오버 시 배경색 회색 */
+    color: #666; /* 마우스 오버 시 글자색 진하게 */
+}
+
+.communication-tab.active {
+    border: 3px solid #7e90e7;
+    color: #7e90e7;
+}
+/*
+.communication-tab.inactive {
+    background-color: #f0f0f0;  비활성화된 탭의 배경색 회색 
+    color: #999;  비활성화된 탭의 글자색 회색 
+}
+.tabs .tab {
+    cursor: pointer;
+}    
+*/
+
+.FAQ_title {
+    display: block;
+    padding: 10px 20px;
+    font-size: 22px;
+    color: #fff;
+    background-color: #7e90e7;
+    cursor: pointer;
+    position: relative;
+    font-family: 'DungGeunMo';
+}
+
+.FAQ_title em {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    display: inline-block;
+    background: url('../asset/이미지/펼치기.png') no-repeat;
+    background-size: 20px 20px;
+}
+
+.FAQ_title:hover {
+    background-color: #6b7ed6; /* 마우스 오버 시 색상 변경 */
+}
+
+.post_content {
+    display: none; /* 기본적으로 숨김 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+    padding: 20px; /* 콘텐츠 안의 여백 */
+    background: #fdf8ff;
+    font-size: 18px;
+}
+
+.faq_text {
+    font-size: 22px;
+    color: #000000;
+    display: block;
+    padding: 0px 30px;
+    font-family: 'DungGeunMo';
+}
+  
+.subhead{
+    font-size: 22px;
+    font-weight: bolder;
+    text-align: center;
+    color: #5365bc;}

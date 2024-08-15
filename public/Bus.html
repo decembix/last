@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>셔틀버스</title>
+    <link rel="stylesheet" href="../asset/main.css">
+    <link rel="stylesheet" href="../asset/Bus.css">
+    <script  src="../asset/tab.js"></script> <!--자바스크립트 적용-->
+</head>
+<body>
+    <header>
+        <div id="signin">
+            <a href="/login">회원가입/로그인</a>
+        </div>
+        <div class="logo">
+            <a href="/"><img src="../asset/이미지/수룡선배 아이콘2.png" width="400px" alt="Logo"></a>
+        </div>
+        <nav class="folder">
+            <div class="tabs">
+                <a href="/Sujung" class="tab"><div><span>수정캠퍼스</span></div></a>
+                <a href="/Unjung" class="tab"><div><span>운정캠퍼스</span></div></a>
+                <a href="/Bus" class="tab"><div><span>셔틀버스</span></div></a>
+                <a href="/view" class="tab"><div><span>수정이 공간</span></div></a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="content__inner"> <!--버스 시간표-->
+        <div class="page">
+            <table>
+                <tr>
+                    <th colspan="2">수정캠퍼스</th>
+                    <th colspan="2">운정캠퍼스</th>
+                </tr>
+                <tr class="title">
+                  <td style="width: 30%;"> 장소 </td>
+                  <td style="width: 20%;"> 출발 시각</td>
+                  <td style="width: 30%;"> 장소 </td>
+                  <td style="width: 20%;"> 출발 시각</td>
+                </tr>
+                <tr>
+                  <td>
+                    <img src="../asset/이미지/수캠_버스.jpg" width="95%"> <br>
+                    후문 버스 주차장
+                  </td>
+                  <td>
+                    11:00 <br>
+                    13:00 <br>
+                    14:00 <br>
+                    15:30 <br>
+                    17:00 <br>
+                </td>
+                <td> 
+                    <img src="../asset/이미지/운캠_버스.jpg" width="95%"> <br>
+                    정문 
+                </td>
+                  <td>
+                    11:30 <br>
+                    13:30 <br>
+                    14:30 <br>
+                    16:00 <br>
+                    17:30 <br>
+                </td>
+              </table>
+
+        </div>
+        </div>
+    </main>
+    <footer>
+        <p>©컴공 전복자들</p>
+    </footer>
+
+    <script>
+        function toggleContent(element) {
+            var content = element.nextElementSibling;
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+
+        // 로그인 상태 확인
+        document.addEventListener('DOMContentLoaded', () => {
+            const token = sessionStorage.getItem('authToken');
+            if (token) {
+                fetch('/users/me', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                })
+                .then(response => response.json())
+                .then(user => {
+                    if (user.username) {
+                        document.getElementById('signin').innerHTML = `
+                            ${user.username}님, 반갑습니다! 
+                            <button id="logoutButton">로그아웃</button>
+                        `;
+                        document.getElementById('logoutButton').addEventListener('click', () => {
+                            sessionStorage.removeItem('authToken');
+                            window.location.href = '/';
+                        });
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            }
+        });
+
+
+        // JavaScript를 이용하여 마우스 호버 시 이미지 변경
+document.querySelectorAll('.right p').forEach(item => {
+    item.addEventListener('mouseover', function() {
+        document.querySelectorAll('.left img').forEach(img => img.style.display = 'none');
+        const imgId = this.getAttribute('data-image');
+        const img = document.getElementById(imgId);
+        if (img) {
+            img.style.display = 'block';
+        }
+    });
+
+    item.addEventListener('mouseout', function() {
+        const imgId = this.getAttribute('data-image');
+        const img = document.getElementById(imgId);
+        if (img) {
+            img.style.display = 'none';
+        }
+    });
+});
+    </script>
+</body>
+</html>
